@@ -26,26 +26,23 @@ jobs:
           pwd
           ls
           cd ubuntu
-          cd 5-oyimtixon/api-gateway
+          cd finance/api_gateway-personal_finance
           sudo docker compose down
           sudo docker compose up -d
           cd ..
 
-          cd auth-service
+          cd auth-personal_finance-
           sudo docker compose down
           sudo docker compose up -d
           cd ..
 
-          cd budgetting-service
+          cd Budget-personal_finance-
           sudo docker compose down
           sudo docker compose up -d
           cd ..
   
 
-          cd notification
-          sudo docker compose down
-          sudo docker compose up -d
-
+        
 
 
 

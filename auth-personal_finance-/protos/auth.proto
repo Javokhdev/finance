@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+option go_package = "genproto/auth";
+
+package auth;
+
+service AuthService {
+    rpc Register(RegisterReq) returns (RegisterRes);
+    rpc Login(LoginReq) returns (User);
+    rpc ForgotPassword(GetByEmail) returns (ForgotPassRes);
+    rpc ResetPassword(ResetPassReq) returns (ResetPasswordRes);
+    rpc SaveRefreshToken(RefToken) returns (SaveRefereshTokenRes);
+    rpc RefreshToken(GetByEmail) returns (LoginRes);
+    rpc ChangeRole(Role) returns (ChangeRoleRes);  
+}
+
+message RegisterReq {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+    string full_name = 4;
+    string date_of_birth = 5;
+}
+
+message RegisterRes {
+    string id = 1;
+    string Message = 2;
+}
+
+message User {
+    string id = 1;
+    string username = 2;
+    string email = 3;
+    string role = 4;
+}
+
+message LoginReq {
+    string username = 1;
+    string password = 2;
+}
+
+message LoginRes {
+    string token = 1;
+    string expires_at = 2;
+}
+
+message GetByEmail {
+    string email = 1;
+}
+
+message ResetPassReq {
+    string reset_token = 1;
+    string email = 2;
+    string new_password = 3;
+}
+
+message ResetPassReqBody {
+    string reset_token = 1;
+    string new_password = 2;
+}
+
+message Params {
+    string from = 1;
+    string password = 2;
+    string to = 3;
+    string message = 4;
+    string code = 5;
+}
+
+message RefToken {
+    string id = 1;
+    string user_id = 2;
+    string token = 3;
+    string created_at = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+}
+
+message Role {
+    string id = 1;
+    string role = 2;
+}
+
+message GetById {
+    string Id = 1;
+}
+
+message ChangeRoleRes {
+    string Message = 1;
+}
+
+message SaveRefereshTokenRes {
+    string Message = 1;
+}
+
+message ForgotPassRes {
+    string Message = 1;
+}
+
+message ResetPasswordRes {
+    string Message = 1;
+}

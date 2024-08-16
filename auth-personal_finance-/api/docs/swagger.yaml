@@ -1,0 +1,453 @@
+definitions:
+  auth.ChangePasswordReqBody:
+    properties:
+      CurrentPassword:
+        type: string
+      NewPassword:
+        type: string
+    type: object
+  auth.EditProfileReqBpdy:
+    properties:
+      DateOfBirth:
+        type: string
+      Email:
+        type: string
+      FullName:
+        type: string
+      Username:
+        type: string
+    type: object
+  auth.GetByEmail:
+    properties:
+      email:
+        type: string
+    type: object
+  auth.LoginReq:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  auth.LoginRes:
+    properties:
+      expires_at:
+        type: string
+      token:
+        type: string
+    type: object
+  auth.RegisterReq:
+    properties:
+      date_of_birth:
+        type: string
+      email:
+        type: string
+      full_name:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  auth.ResetPassReqBody:
+    properties:
+      new_password:
+        type: string
+      reset_token:
+        type: string
+    type: object
+  auth.Role:
+    properties:
+      id:
+        type: string
+      role:
+        type: string
+    type: object
+  auth.Setting:
+    properties:
+      Language:
+        type: string
+      Notification:
+        type: string
+      PrivacyLevel:
+        type: string
+      Theme:
+        type: string
+    type: object
+  auth.UserRes:
+    properties:
+      DateOfBirth:
+        type: string
+      Email:
+        type: string
+      FullName:
+        type: string
+      Id:
+        type: string
+      Role:
+        type: string
+      Username:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: API for Authentication Service
+  title: Authentication Service API
+  version: "1.0"
+paths:
+  /change-role:
+    put:
+      consumes:
+      - application/json
+      description: Update the role of a user with the specified ID
+      parameters:
+      - description: Change role request
+        in: body
+        name: profile
+        required: true
+        schema:
+          $ref: '#/definitions/auth.Role'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Role Changed successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Change user role
+      tags:
+      - auth
+  /forgot-password:
+    post:
+      consumes:
+      - application/json
+      description: Request to reset user's password
+      parameters:
+      - description: Email Request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/auth.GetByEmail'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Password reset email sent successfully
+          schema:
+            type: string
+        "400":
+          description: invalid request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Forgot password
+      tags:
+      - auth
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Login a user
+      parameters:
+      - description: Login Request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/auth.LoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: invalid request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Login a user
+      tags:
+      - auth
+  /refresh-token:
+    get:
+      consumes:
+      - application/json
+      description: Request to reset user's access token
+      parameters:
+      - description: Email
+        in: query
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/auth.LoginRes'
+        "400":
+          description: Invalid request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Refresh Token
+      tags:
+      - auth
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user
+      parameters:
+      - description: Register User Request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/auth.RegisterReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User registered successfully
+          schema:
+            type: string
+        "400":
+          description: invalid request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Register a new user
+      tags:
+      - auth
+  /reset-password:
+    post:
+      consumes:
+      - application/json
+      description: Reset user's password with a reset code
+      parameters:
+      - description: Password Reset Request
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/auth.ResetPassReqBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Password reset successfully
+          schema:
+            type: string
+        "400":
+          description: invalid request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Reset password
+      tags:
+      - auth
+  /user:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a user with the specified ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User deleted successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete user
+      tags:
+      - users
+  /user/passwords:
+    put:
+      consumes:
+      - application/json
+      description: Update the password of a user with the specified ID
+      parameters:
+      - description: Updated password details
+        in: body
+        name: password
+        required: true
+        schema:
+          $ref: '#/definitions/auth.ChangePasswordReqBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Password updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Change user password
+      tags:
+      - users
+  /user/profiles:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve the profile of a user with the specified ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/auth.UserRes'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get user profile
+      tags:
+      - users
+    put:
+      consumes:
+      - application/json
+      description: Update the profile of a user with the specified ID
+      parameters:
+      - description: Updated profile details
+        in: body
+        name: profile
+        required: true
+        schema:
+          $ref: '#/definitions/auth.EditProfileReqBpdy'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Profile updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Edit user profile
+      tags:
+      - users
+  /user/setting:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve the settings of a user with the specified ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/auth.Setting'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get user settings
+      tags:
+      - users
+    put:
+      consumes:
+      - application/json
+      description: Update the settings of a user with the specified ID
+      parameters:
+      - description: Updated setting details
+        in: body
+        name: setting
+        required: true
+        schema:
+          $ref: '#/definitions/auth.Setting'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Setting updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Edit user settings
+      tags:
+      - users
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

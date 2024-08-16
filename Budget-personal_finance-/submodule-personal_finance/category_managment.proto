@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package budget;
+option go_package = "genproto/";
+
+
+service CategoryService {
+    rpc CreateCategory (CreateCategoryRequest) returns (MessageResponse);
+    rpc ListCategories (ListCategoriesRequest) returns (ListResponse);
+    rpc GetCategoryById (GetCategoryByIdRequest) returns (CategoryResponse);
+    rpc UpdateCategory (UpdateCategoryRequest) returns (MessageResponse);
+    rpc DeleteCategory (DeleteCategoryRequest) returns (CategoryDeleteResponse);
+}
+
+message CreateCategoryRequest {
+    string id = 1;
+    string user_id = 2;
+    string name = 3;
+    string type = 4;
+}
+
+message MessageResponse {
+    string Message = 1;
+}
+
+message ListCategoriesRequest {
+    string category_id = 1;
+    string user_id = 2;
+    string name = 3;
+    string type = 4;
+}
+
+message GetCategoryByIdRequest {
+    string category_id = 1;
+}
+
+message UpdateCategoryRequest {
+    string category_id = 1;
+    string user_id = 2;
+    string name = 3;
+    string type = 4;
+}
+
+message DeleteCategoryRequest {
+    string category_id = 1;
+}
+
+message CategoryResponse {
+    string category_id = 1;
+    string user_id = 2;
+    string name = 3;
+    string type = 4;
+}
+
+message ListResponse {
+    repeated CategoryResponse categories = 1;
+}
+
+message CategoryDeleteResponse {
+    bool success = 1;
+}

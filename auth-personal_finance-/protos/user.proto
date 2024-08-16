@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+option go_package = "genproto/auth";
+
+package auth;
+
+service UserService{
+    rpc GetProfile(GetByIdReq) returns (UserRes);
+    rpc EditProfile(UserRes) returns (UserRes);
+    rpc ChangePassword(ChangePasswordReq) returns (ChangePasswordRes);
+    rpc GetSetting(GetSettingReq) returns (Setting);
+    rpc EditSetting(SettingReq) returns (SettingRes);
+    rpc DeleteUser(DeleteReq) returns (DeleteRes);
+}
+
+message UserRes{
+    string Id = 1;
+    string Username = 2;
+    string Email = 3;
+    string FullName = 4;
+    string DateOfBirth = 5;
+    string Role = 6;
+}
+
+message EditProfileReqBpdy {
+    string Username = 1;
+    string Email = 2;
+    string FullName = 3;
+    string DateOfBirth = 4;
+}
+
+message ChangePasswordReq{
+    string Id = 1;
+    string CurrentPassword = 2;
+    string NewPassword = 3;
+}
+
+message ChangePasswordRes{
+    string Message = 1;
+}
+
+message ChangePasswordReqBody{
+    string CurrentPassword = 1;
+    string NewPassword = 2;
+}
+
+message SettingReq {
+    string Id = 1;
+    string PrivacyLevel = 2;
+    string Notification = 3;
+    string Language = 4;
+    string Theme = 5;
+}
+
+message Setting {
+    string PrivacyLevel = 1;
+    string Notification = 2;
+    string Language = 3;
+    string Theme = 4;
+}
+
+message GetByIdReq {
+    string Id = 1;
+}
+
+message GetSettingReq {
+    string Id = 1;
+}
+
+message DeleteReq {
+    string Id = 1;
+}
+
+message DeleteRes {
+    string Message = 1;
+}
+
+message SettingRes {
+    string Message = 1;
+}
+

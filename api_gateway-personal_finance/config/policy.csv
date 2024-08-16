@@ -1,0 +1,34 @@
+p, unauthorized, /user/register, POST
+
+p, unauthorized, /account/create, POST
+p, unauthorized, /account/list, GET
+p, unauthorized, /account/get/:id, GET
+p, unauthorized, /account/update, PUT
+p, unauthorized, /account/delete/:id, DELETE
+
+p, unauthorized, /budget/create, POST
+p, unauthorized, /budget/list, GET
+p, unauthorized, /budget/get/:id, GET
+p, unauthorized, /budget/update, PUT
+p, unauthorized, /budget/delete/:id, DELETE
+
+p, unauthorized, /category/create, POST
+p, unauthorized, /category/list, GET
+p, unauthorized, /category/get/:id, GET
+p, unauthorized, /category/update, PUT
+p, unauthorized, /category/delete/:id, DELETE
+
+p, unauthorized, /goal/create, POST
+p, unauthorized, /goal/list, GET
+p, unauthorized, /goal/get/:id, GET
+p, unauthorized, /goal/update, PUT
+p, unauthorized, /goal/delete/:id, DELETE
+
+p, unauthorized, /transaction/create, POST
+p, unauthorized, /transaction/list, GET
+p, unauthorized, /transaction/get/:id, GET
+p, unauthorized, /transaction/update, PUT
+p, unauthorized, /transaction/delete/:id, DELETE
+
+p, unauthorized, /notification/list, GET
+p, unauthorized, /notification/get/:user_id, GET

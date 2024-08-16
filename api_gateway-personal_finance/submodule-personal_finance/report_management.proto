@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package budget;
+option go_package = "genproto/";
+
+
+service ReportService {
+    rpc GetSpendingReport (GetSpendingReportRequest) returns (SpendingReportResponse);
+    rpc GetIncomeReport (GetIncomeReportRequest) returns (IncomeReportResponse);
+    rpc GetBudgetPerformanceReport (GetBudgetPerformanceReportRequest) returns (BudgetPerformanceReportResponse);
+    rpc GetGoalProgressReport (GetGoalProgressReportRequest) returns (GoalProgressReportResponse);
+}
+
+message GetSpendingReportRequest {
+    string account_id = 1;
+    string user_id = 2;
+}
+
+message GetIncomeReportRequest {
+    string user_id = 1;
+    string account_id = 2;
+}
+
+message GetBudgetPerformanceReportRequest {
+    string user_id = 1;
+}
+
+message GetGoalProgressReportRequest {
+    string user_id = 1;
+}
+
+message SpendingReportResponse {
+    double total_spent = 1;
+}
+
+message IncomeReportResponse {
+    double total_income = 1;
+}
+
+message BudgetPerformanceReportResponse {
+    double total_budget = 1;
+    double total_spent = 2;
+}
+
+message GoalProgressReportResponse {
+    double total_goal_amount = 1;
+    double total_saved = 2;
+}

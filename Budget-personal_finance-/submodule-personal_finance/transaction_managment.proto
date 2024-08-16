@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package budget;
+option go_package = "genproto/";
+
+
+service TransactionService {
+    rpc CreateTransaction (CreateTransactionRequest) returns (response);
+    rpc GetTransactions (GetTransactionsRequest) returns (TransactionsResponse);
+    rpc GetTransactionById (GetTransactionByIdRequest) returns (TransactionResponse);
+    rpc UpdateTransaction (UpdateTransactionRequest) returns (response);
+    rpc DeleteTransaction (DeleteTransactionRequest) returns (TransactionDeleteResponse);
+}
+
+message response {
+    string message = 1;
+}
+
+message CreateTransactionRequest {
+    string id = 1;
+    string user_id = 2;
+    string account_id = 3;
+    string category_id = 4;
+    float amount = 5;
+    string type = 6;
+    string description = 7;
+    string date = 8;
+}
+
+message GetTransactionsRequest {
+    string transaction_id = 1;
+    string user_id = 2;
+    string account_id = 3;
+    string category_id = 4;
+    float amount = 5;
+    string type = 6;
+    string description = 7;
+    string date = 8;
+}
+
+message GetTransactionByIdRequest {
+    string transaction_id = 1;
+}
+
+message UpdateTransactionRequest {
+    string transaction_id = 1;
+    string user_id = 2;
+    string account_id = 3;
+    string category_id = 4;
+    float amount = 5;
+    string type = 6;
+    string description = 7;
+    string date = 8;
+}
+
+message DeleteTransactionRequest {
+    string transaction_id = 1;
+}
+
+message TransactionResponse {
+    string transaction_id = 1;
+    string user_id = 2;
+    string account_id = 3;
+    string category_id = 4;
+    float amount = 5;
+    string type = 6;
+    string description = 7;
+    string date = 8;
+}
+
+message TransactionsResponse {
+    repeated TransactionResponse transactions = 1;
+}
+
+message TransactionDeleteResponse {
+    bool success = 1;
+}

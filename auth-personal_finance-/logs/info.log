@@ -1,0 +1,32 @@
+[INFO]   2024/07/27 00:58:12 app.go:35: Connected to Postgres
+[INFO]   2024/07/27 00:58:12 app.go:47: Connected to Redis
+[INFO]   2024/07/29 16:31:26 app.go:34: Connected to Postgres
+[INFO]   2024/07/29 16:31:26 app.go:46: Connected to Redis
+[INFO]   2024/07/29 16:32:32 app.go:34: Connected to Postgres
+[INFO]   2024/07/29 16:32:32 app.go:46: Connected to Redis
+[INFO]   2024/07/29 16:33:20 app.go:34: Connected to Postgres
+[INFO]   2024/07/29 16:33:20 app.go:46: Connected to Redis
+[INFO]   2024/08/03 14:51:27 app.go:34: Connected to Postgres
+[INFO]   2024/08/03 14:51:27 app.go:46: Connected to Redis
+[INFO]   2024/08/11 21:54:01 app.go:34: Connected to Postgres
+[ERROR]  2024/08/11 21:54:01 app.go:44: Failed to connect to Redis: dial tcp: lookup redis on 127.0.0.53:53: server misbehaving
+[INFO]   2024/08/11 21:56:34 app.go:34: Connected to Postgres
+[ERROR]  2024/08/11 21:56:34 app.go:44: Failed to connect to Redis: dial tcp: lookup redis on 127.0.0.53:53: server misbehaving
+[INFO]   2024/08/11 21:57:25 app.go:34: Connected to Postgres
+[ERROR]  2024/08/11 21:57:25 app.go:44: Failed to connect to Redis: dial tcp: lookup redis on 127.0.0.53:53: server misbehaving
+[INFO]   2024/08/11 22:00:16 app.go:34: Connected to Postgres
+[INFO]   2024/08/11 22:00:16 app.go:46: Connected to Redis
+[INFO]   2024/08/13 12:36:46 app.go:34: Connected to Postgres
+[INFO]   2024/08/13 12:36:46 app.go:46: Connected to Redis
+[INFO]   2024/08/13 12:39:27 app.go:34: Connected to Postgres
+[INFO]   2024/08/13 12:39:27 app.go:46: Connected to Redis
+[INFO]   2024/08/13 12:40:09 app.go:34: Connected to Postgres
+[INFO]   2024/08/13 12:40:09 app.go:46: Connected to Redis
+[INFO]   2024/08/13 12:40:33 app.go:34: Connected to Postgres
+[INFO]   2024/08/13 12:40:33 app.go:46: Connected to Redis
+[INFO]   2024/08/13 12:41:24 app.go:34: Connected to Postgres
+[INFO]   2024/08/13 12:41:24 app.go:46: Connected to Redis
+[INFO]   2024/08/13 12:52:38 app.go:34: Connected to Postgres
+[INFO]   2024/08/13 12:52:38 app.go:46: Connected to Redis
+[INFO]   2024/08/13 14:20:39 app.go:34: Connected to Postgres
+[INFO]   2024/08/13 14:20:39 app.go:46: Connected to Redis

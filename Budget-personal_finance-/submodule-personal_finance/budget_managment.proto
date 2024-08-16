@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package budget;
+option go_package = "genproto/";
+
+
+service BudgetService {
+    rpc CreateBudget (CreateBudgetRequest) returns (MessageResponsee);
+    rpc ListBudgets (ListBudgetsRequest) returns (ListBudgetsResponse);
+    rpc GetBudgetById (GetBudgetByIdRequest) returns (BudgetResponse);
+    rpc UpdateBudget (UpdateBudgetRequest) returns (MessageResponsee);
+    rpc DeleteBudget (DeleteBudgetRequest) returns (BudgetDeleteResponse);
+}
+
+message MessageResponsee {
+    string Message = 1;
+}
+
+message CreateBudgetRequest {
+    string id = 1;
+    string user_id = 2;
+    string category_id = 3;
+    double amount = 4;
+    string period = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message ListBudgetsRequest {
+    string budget_id = 1;
+    string user_id = 2;
+    string category_id = 3;
+    double amount = 4;
+    string period = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message GetBudgetByIdRequest {
+    string budget_id = 1;
+}
+
+message UpdateBudgetRequest {
+    string budget_id = 1;
+    string user_id = 2;
+    string category_id = 3;
+    double amount = 4;
+    string period = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message DeleteBudgetRequest {
+    string budget_id = 1;
+}
+
+message BudgetResponse {
+    string budget_id = 1;
+    string user_id = 2;
+    string category_id = 3;
+    double amount = 4;
+    string period = 5;
+    string start_date = 6;
+    string end_date = 7;
+}
+
+message ListBudgetsResponse {
+    repeated BudgetResponse budgets = 1;
+}
+
+message BudgetDeleteResponse {
+    bool success = 1;
+}
+
+message BudgetReportRequest{
+    string id = 1;
+}
+message BudgetReportResponse{
+    string id = 1;
+    string user_id = 2;
+    string category_id = 3;
+    float amount = 4;
+    string period = 5;
+    string start_date = 6;
+    string end_date = 7;
+    float spent_amount = 8;
+}
+

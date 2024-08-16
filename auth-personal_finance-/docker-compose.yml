@@ -1,0 +1,77 @@
+version: '3.9'
+
+services:
+
+
+  migrate:
+    image: migrate/migrate
+    networks:
+      - mynetwork
+    volumes:
+      - ./migrations:/migrations
+    command: [ "-path", "/migrations", "-database",  
+                "postgres://postgres:root@auth_con:5432/auth_db?sslmode=disable",
+                "up" ]
+    depends_on:
+      - postgres-db
+    
+  postgres-db:
+    container_name: auth_con 
+    image: postgres:latest
+    environment:
+      PGUSER: postgres
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+      POSTGRES_DB: auth_db 
+    volumes:
+      - db:/auth-database/auth-memory
+    ports:
+      - "5435:5432"
+    networks:
+      - mynetwork
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5   
+
+  auth-service:
+    container_name: auth
+    build: .
+    depends_on:
+      - postgres-db
+
+    ports:
+      - "8090:8090"
+    networks:
+      - mynetwork
+
+  # postgres-db:
+  #     container_name: auth_con
+  #     image: postgres:latest
+  #     environment:
+  #       PGUSER: postgres
+  #       POSTGRES_PASSWORD: root
+  #       POSTGRES_DB: auth_db
+  #     volumes:
+  #       - db:/post-database/post-memory
+  #     ports:
+  #       - "5433:5433"
+  #     networks:
+  #       - mynetwork
+  #     restart: unless-stopped
+  #     healthcheck:
+  #       test: ["CMD-SHELL", "pg_isready -d postgres"]
+  #       interval: 30s
+  #       timeout: 10s
+  #       retries: 5
+
+networks:
+  mynetwork:
+    external: true
+    name: global-network
+    driver: bridge
+
+volumes:
+  db:

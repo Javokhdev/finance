@@ -1,0 +1,1157 @@
+basePath: /
+definitions:
+  genproto.AccountResponse:
+    properties:
+      account_id:
+        type: string
+      account_name:
+        type: string
+      account_type:
+        type: string
+      balance:
+        type: number
+      currency:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.BudgetDeleteResponse:
+    properties:
+      success:
+        type: boolean
+    type: object
+  genproto.BudgetResponse:
+    properties:
+      amount:
+        type: number
+      budget_id:
+        type: string
+      category_id:
+        type: string
+      end_date:
+        type: string
+      period:
+        type: string
+      start_date:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CategoryDeleteResponse:
+    properties:
+      success:
+        type: boolean
+    type: object
+  genproto.CategoryResponse:
+    properties:
+      category_id:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CreateAccountRequest:
+    properties:
+      account_name:
+        type: string
+      balance:
+        type: number
+      currency:
+        type: string
+      id:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CreateAccountRes:
+    properties:
+      Message:
+        type: string
+    type: object
+  genproto.CreateBudgetRequest:
+    properties:
+      amount:
+        type: number
+      category_id:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: string
+      period:
+        type: string
+      start_date:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CreateCategoryRequest:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.CreateGoalRequest:
+    properties:
+      current_amount:
+        type: number
+      deadline:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+      target_amount:
+        type: number
+      user_id:
+        type: string
+    type: object
+  genproto.CreateTransactionRequest:
+    properties:
+      account_id:
+        type: string
+      amount:
+        type: number
+      category_id:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.DeleteResponse:
+    properties:
+      success:
+        type: boolean
+    type: object
+  genproto.GetNotificationByidResponse:
+    properties:
+      message:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.GoalDeleteResponse:
+    properties:
+      success:
+        type: boolean
+    type: object
+  genproto.GoalResponse:
+    properties:
+      current_amount:
+        type: number
+      deadline:
+        type: string
+      goal_id:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+      target_amount:
+        type: number
+    type: object
+  genproto.ListAccountsResponse:
+    properties:
+      accounts:
+        items:
+          $ref: '#/definitions/genproto.AccountResponse'
+        type: array
+    type: object
+  genproto.ListBudgetsResponse:
+    properties:
+      budgets:
+        items:
+          $ref: '#/definitions/genproto.BudgetResponse'
+        type: array
+    type: object
+  genproto.ListGoalsResponse:
+    properties:
+      goals:
+        items:
+          $ref: '#/definitions/genproto.GoalResponse'
+        type: array
+    type: object
+  genproto.ListNotificationResponse:
+    properties:
+      notifications:
+        items:
+          $ref: '#/definitions/genproto.GetNotificationByidResponse'
+        type: array
+    type: object
+  genproto.ListResponse:
+    properties:
+      categories:
+        items:
+          $ref: '#/definitions/genproto.CategoryResponse'
+        type: array
+    type: object
+  genproto.MessageResponse:
+    properties:
+      Message:
+        type: string
+    type: object
+  genproto.MessageResponsee:
+    properties:
+      Message:
+        type: string
+    type: object
+  genproto.Response:
+    properties:
+      message:
+        type: string
+    type: object
+  genproto.Responsee:
+    properties:
+      Message:
+        type: string
+    type: object
+  genproto.TransactionDeleteResponse:
+    properties:
+      success:
+        type: boolean
+    type: object
+  genproto.TransactionResponse:
+    properties:
+      account_id:
+        type: string
+      amount:
+        type: number
+      category_id:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      transaction_id:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.TransactionsResponse:
+    properties:
+      transactions:
+        items:
+          $ref: '#/definitions/genproto.TransactionResponse'
+        type: array
+    type: object
+  genproto.UpdateAccountRequest:
+    properties:
+      account_id:
+        type: string
+      account_name:
+        type: string
+      balance:
+        type: number
+      currency:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.UpdateBudgetRequest:
+    properties:
+      amount:
+        type: number
+      budget_id:
+        type: string
+      category_id:
+        type: string
+      end_date:
+        type: string
+      period:
+        type: string
+      start_date:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.UpdateCategoryRequest:
+    properties:
+      category_id:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  genproto.UpdateGoalRequest:
+    properties:
+      current_amount:
+        type: number
+      deadline:
+        type: string
+      goal_id:
+        type: string
+      name:
+        type: string
+      status:
+        type: string
+      target_amount:
+        type: number
+    type: object
+  genproto.UpdateTransactionRequest:
+    properties:
+      account_id:
+        type: string
+      amount:
+        type: number
+      category_id:
+        type: string
+      date:
+        type: string
+      description:
+        type: string
+      transaction_id:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Auth service API documentation
+  title: api gat way
+  version: "1.0"
+paths:
+  /account/create:
+    post:
+      consumes:
+      - application/json
+      description: Create a new account for a user
+      parameters:
+      - description: Create account request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account created successfully
+          schema:
+            $ref: '#/definitions/genproto.CreateAccountRes'
+        "500":
+          description: Error while creating account
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create Account
+      tags:
+      - Account
+  /account/delete/{account_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing account by its ID
+      parameters:
+      - description: Account ID
+        in: query
+        name: account_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account deleted successfully
+          schema:
+            $ref: '#/definitions/genproto.DeleteResponse'
+        "400":
+          description: 'Missing required query parameter: account_id'
+          schema:
+            type: string
+        "500":
+          description: Error while deleting account
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete Account
+      tags:
+      - Account
+  /account/get/{account_id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve an account's details by its ID
+      parameters:
+      - description: Account Id
+        in: query
+        name: account_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account details
+          schema:
+            $ref: '#/definitions/genproto.AccountResponse'
+        "400":
+          description: 'Missing required query parameter: account_id'
+          schema:
+            type: string
+        "500":
+          description: Error while fetching account
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get Account by Id
+      tags:
+      - Account
+  /account/list:
+    get:
+      consumes:
+      - application/json
+      description: List all accounts for a user
+      parameters:
+      - description: User ID to filter by
+        in: query
+        name: user_id
+        type: string
+      - description: Account name to filter by
+        in: query
+        name: account_name
+        type: string
+      - description: Account type to filter by
+        in: query
+        name: type
+        type: string
+      - description: Account balance to filter by
+        in: query
+        name: balance
+        type: number
+      - description: Account currency to filter by
+        in: query
+        name: currency
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of accounts
+          schema:
+            $ref: '#/definitions/genproto.ListAccountsResponse'
+        "500":
+          description: Error while listing accounts
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: List Accounts
+      tags:
+      - Account
+  /account/update:
+    put:
+      consumes:
+      - application/json
+      description: Update the details of an existing account
+      parameters:
+      - description: Update account request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Account updated successfully
+          schema:
+            $ref: '#/definitions/genproto.CreateAccountRes'
+        "400":
+          description: Invalid request or missing account_id
+          schema:
+            type: string
+        "500":
+          description: Error while updating account
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update Account
+      tags:
+      - Account
+  /budget/create:
+    post:
+      consumes:
+      - application/json
+      description: Create a new budget for a user
+      parameters:
+      - description: Create budget request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateBudgetRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Budget created successfully
+          schema:
+            $ref: '#/definitions/genproto.MessageResponsee'
+        "500":
+          description: Error while creating budget
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create Budget
+      tags:
+      - Budget
+  /budget/delete/{budget_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing budget by its ID
+      parameters:
+      - description: Budget ID
+        in: query
+        name: budget_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Budget deleted successfully
+          schema:
+            $ref: '#/definitions/genproto.BudgetDeleteResponse'
+        "400":
+          description: 'Missing required query parameter: budget_id'
+          schema:
+            type: string
+        "500":
+          description: Error while deleting budget
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete Budget
+      tags:
+      - Budget
+  /budget/get/{budget_id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a budget's details by its ID
+      parameters:
+      - description: Budget ID
+        in: query
+        name: budget_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Budget details
+          schema:
+            $ref: '#/definitions/genproto.BudgetResponse'
+        "400":
+          description: 'Missing required query parameter: budget_id'
+          schema:
+            type: string
+        "500":
+          description: Error while fetching budget
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get Budget by ID
+      tags:
+      - Budget
+  /budget/list:
+    get:
+      consumes:
+      - application/json
+      description: List all budgets for a user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of budgets
+          schema:
+            $ref: '#/definitions/genproto.ListBudgetsResponse'
+        "500":
+          description: Error while listing budgets
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: List Budgets
+      tags:
+      - Budget
+  /budget/update:
+    put:
+      consumes:
+      - application/json
+      description: Update the details of an existing budget
+      parameters:
+      - description: Update budget request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateBudgetRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Budget updated successfully
+          schema:
+            $ref: '#/definitions/genproto.MessageResponsee'
+        "400":
+          description: Invalid request or missing budget_id
+          schema:
+            type: string
+        "500":
+          description: Error while updating budget
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update Budget
+      tags:
+      - Budget
+  /category/create:
+    post:
+      consumes:
+      - application/json
+      description: Create a new category for a user
+      parameters:
+      - description: Create category request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category created successfully
+          schema:
+            $ref: '#/definitions/genproto.MessageResponse'
+        "500":
+          description: Error while creating category
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create Category
+      tags:
+      - Category
+  /category/delete/{category_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing category by its ID
+      parameters:
+      - description: Category ID
+        in: query
+        name: category_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category deleted successfully
+          schema:
+            $ref: '#/definitions/genproto.CategoryDeleteResponse'
+        "400":
+          description: 'Missing required query parameter: category_id'
+          schema:
+            type: string
+        "500":
+          description: Error while deleting category
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete Category
+      tags:
+      - Category
+  /category/get/{category_id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a category's details by its ID
+      parameters:
+      - description: Category ID
+        in: query
+        name: category_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category details
+          schema:
+            $ref: '#/definitions/genproto.CategoryResponse'
+        "400":
+          description: 'Missing required query parameter: category_id'
+          schema:
+            type: string
+        "500":
+          description: Error while fetching category
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get Category by ID
+      tags:
+      - Category
+  /category/list:
+    get:
+      consumes:
+      - application/json
+      description: List all categories for a user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of categories
+          schema:
+            $ref: '#/definitions/genproto.ListResponse'
+        "500":
+          description: Error while listing categories
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: List Categories
+      tags:
+      - Category
+  /category/update:
+    put:
+      consumes:
+      - application/json
+      description: Update the details of an existing category
+      parameters:
+      - description: Update category request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateCategoryRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category updated successfully
+          schema:
+            $ref: '#/definitions/genproto.MessageResponse'
+        "400":
+          description: Invalid request or missing category_id
+          schema:
+            type: string
+        "500":
+          description: Error while updating category
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update Category
+      tags:
+      - Category
+  /goal/create:
+    post:
+      consumes:
+      - application/json
+      description: Create a new financial goal for a user
+      parameters:
+      - description: Create goal request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateGoalRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Goal created successfully
+          schema:
+            $ref: '#/definitions/genproto.Responsee'
+        "500":
+          description: Error while creating goal
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create Goal
+      tags:
+      - Goal
+  /goal/delete/{goal_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing goal by its ID
+      parameters:
+      - description: Goal ID
+        in: query
+        name: goal_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Goal deleted successfully
+          schema:
+            $ref: '#/definitions/genproto.GoalDeleteResponse'
+        "400":
+          description: 'Missing required query parameter: goal_id'
+          schema:
+            type: string
+        "500":
+          description: Error while deleting goal
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete Goal
+      tags:
+      - Goal
+  /goal/get/{goal_id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a goal's details by its ID
+      parameters:
+      - description: Goal ID
+        in: query
+        name: goal_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Goal details
+          schema:
+            $ref: '#/definitions/genproto.GoalResponse'
+        "400":
+          description: 'Missing required query parameter: goal_id'
+          schema:
+            type: string
+        "500":
+          description: Error while fetching goal
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get Goal by ID
+      tags:
+      - Goal
+  /goal/list:
+    get:
+      consumes:
+      - application/json
+      description: List all financial goals for a user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of goals
+          schema:
+            $ref: '#/definitions/genproto.ListGoalsResponse'
+        "500":
+          description: Error while listing goals
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: List Goals
+      tags:
+      - Goal
+  /goal/update:
+    put:
+      consumes:
+      - application/json
+      description: Update the details of an existing goal
+      parameters:
+      - description: Update goal request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateGoalRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Goal updated successfully
+          schema:
+            $ref: '#/definitions/genproto.Responsee'
+        "400":
+          description: Invalid request or missing goal_id
+          schema:
+            type: string
+        "500":
+          description: Error while updating goal
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update Goal
+      tags:
+      - Goal
+  /notification/get/{user_id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a notification by user_id
+      parameters:
+      - description: User ID
+        in: query
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Notification retrieved successfully
+          schema:
+            $ref: '#/definitions/genproto.GetNotificationByidResponse'
+        "404":
+          description: Notification not found
+          schema:
+            type: string
+        "500":
+          description: Error while retrieving notification
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get Notification
+      tags:
+      - Notification
+  /notification/list:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of all notifications
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of notifications retrieved successfully
+          schema:
+            $ref: '#/definitions/genproto.ListNotificationResponse'
+        "500":
+          description: Error while retrieving notifications" // Use Responsee for
+            general errors
+          schema:
+            $ref: '#/definitions/genproto.Responsee'
+      security:
+      - BearerAuth: []
+      summary: List Notifications
+      tags:
+      - Notification
+  /transaction/create:
+    post:
+      consumes:
+      - application/json
+      description: Create a new transaction
+      parameters:
+      - description: Create transaction request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.CreateTransactionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Transaction created successfully
+          schema:
+            $ref: '#/definitions/genproto.Response'
+        "500":
+          description: Error while creating transaction
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Create Transaction
+      tags:
+      - Transaction
+  /transaction/delete/{transaction_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an existing transaction by its ID
+      parameters:
+      - description: Transaction ID
+        in: query
+        name: transaction_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Transaction deleted successfully
+          schema:
+            $ref: '#/definitions/genproto.TransactionDeleteResponse'
+        "400":
+          description: 'Missing required query parameter: transaction_id'
+          schema:
+            type: string
+        "500":
+          description: Error while deleting transaction
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Delete Transaction
+      tags:
+      - Transaction
+  /transaction/get/{transaction_id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a specific transaction's details by its ID
+      parameters:
+      - description: Transaction ID
+        in: query
+        name: transaction_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Transaction details
+          schema:
+            $ref: '#/definitions/genproto.TransactionResponse'
+        "400":
+          description: 'Missing required query parameter: transaction_id'
+          schema:
+            type: string
+        "500":
+          description: Error while fetching transaction
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get Transaction by ID
+      tags:
+      - Transaction
+  /transaction/list:
+    get:
+      consumes:
+      - application/json
+      description: Get transactions based on filter criteria
+      parameters:
+      - description: Account ID to filter by
+        in: query
+        name: account_id
+        type: string
+      - description: Category ID to filter by
+        in: query
+        name: category_id
+        type: string
+      - description: Transaction type to filter by
+        in: query
+        name: type
+        type: string
+      - description: Description to filter by
+        in: query
+        name: description
+        type: string
+      - description: Date to filter by (YYYY-MM-DD)
+        in: query
+        name: date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Transactions retrieved successfully
+          schema:
+            $ref: '#/definitions/genproto.TransactionsResponse'
+        "500":
+          description: Error while retrieving transactions
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Get Transactions
+      tags:
+      - Transaction
+  /transaction/update:
+    put:
+      consumes:
+      - application/json
+      description: Update the details of an existing transaction
+      parameters:
+      - description: Update transaction request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/genproto.UpdateTransactionRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Transaction updated successfully
+          schema:
+            $ref: '#/definitions/genproto.Response'
+        "400":
+          description: Invalid request or missing transaction_id
+          schema:
+            type: string
+        "500":
+          description: Error while updating transaction
+          schema:
+            type: string
+      security:
+      - BearerAuth: []
+      summary: Update Transaction
+      tags:
+      - Transaction
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

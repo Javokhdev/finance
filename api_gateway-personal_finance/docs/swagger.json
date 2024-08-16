@@ -5,7 +5,6 @@
         "title": "api gat way",
         "contact": {}
     },
-    "host": "localhost:8080",
     "basePath": "/",
     "paths": {
         "/account/create": {

@@ -13,7 +13,6 @@ import (
 
 // @title api gat way
 // @description Auth service API documentation
-// @host localhost:8080
 // @BasePath /
 // @securityDefinitions.apikey BearerAuth
 // @in header

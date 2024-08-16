@@ -23,7 +23,7 @@ func NewGin(h *handler.Handler) *gin.Engine {
 	if err != nil {
 		panic(err)
 	}
-
+	/// WEFawef
 	err = ca.LoadPolicy()
 	if err != nil {
 		panic(err)

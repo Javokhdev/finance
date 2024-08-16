@@ -337,7 +337,6 @@ info:
   contact: {}
   description: Auth service API documentation
   title: api gat way
-  version: "1.0"
 paths:
   /account/create:
     post:

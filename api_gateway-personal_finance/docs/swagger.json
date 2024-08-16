@@ -3,8 +3,7 @@
     "info": {
         "description": "Auth service API documentation",
         "title": "api gat way",
-        "contact": {},
-        "version": "1.0"
+        "contact": {}
     },
     "host": "localhost:8080",
     "basePath": "/",

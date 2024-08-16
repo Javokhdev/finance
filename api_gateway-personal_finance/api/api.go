@@ -12,7 +12,6 @@ import (
 )
 
 // @title api gat way
-// @version 1.0
 // @description Auth service API documentation
 // @host localhost:8080
 // @BasePath /

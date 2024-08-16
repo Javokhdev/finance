@@ -34,7 +34,6 @@ jobs:
           cd auth-personal_finance-
           sudo docker compose down
           sudo docker compose up -d
-          
           sudo docker compose up -d
 
           cd ..

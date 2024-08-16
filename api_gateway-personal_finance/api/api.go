@@ -17,7 +17,6 @@ import (
 // @securityDefinitions.apikey BearerAuth
 // @in header
 // @name Authorization
-
 func NewGin(h *handler.Handler) *gin.Engine {
 	ca, err := casbin.NewEnforcer("config/model.conf", "config/policy.csv")
 	if err != nil {
